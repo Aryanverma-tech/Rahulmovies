@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MovieProvider } from "./context/MovieContext";
+import { MovieProvider } from "./context/MovieContext"; 
+
 import HomePage from "./pages/HomePage";
 import MovieDetail from "./pages/MovieDetail";
 import Navbar from "./components/Navbar";

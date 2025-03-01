@@ -1,60 +1,23 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, InputBase, Box } from "@mui/material";
-import { Search as SearchIcon, Movie as MovieIcon } from "@mui/icons-material";
-import { styled, alpha } from "@mui/material/styles";
+import SearchIcon from "@mui/icons-material/Search";
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": { backgroundColor: alpha(theme.palette.common.white, 0.25) },
-  marginLeft: theme.spacing(2),
-  width: "100%",
-  [theme.breakpoints.up("sm")]: { width: "auto" },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  width: "100%",
-  paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-  transition: theme.transitions.create("width"),
-  [theme.breakpoints.up("md")]: { width: "20ch", "&:focus": { width: "30ch" } },
-}));
-
-const Navbar = ({ onSearch }) => {
-  const handleSearch = (e) => {
-    if (onSearch) { // ✅ Ensure onSearch is a function before calling it
-      onSearch(e.target.value);
-    }
-  };
-
+const Navbar = ({ searchQuery, setSearchQuery }) => {
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "#1c1c1c" }}>
-      <Toolbar>
-        <MovieIcon sx={{ mr: 1, color: "red" }} />
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: "bold" }}>
-          Rahul Movies
+    <AppBar position="sticky" sx={{ backgroundColor: "#1c1c1c", padding: "10px 0" }}>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Typography variant="h5" fontWeight="bold" color="primary">
+          🎬 MoviesForEnergy
         </Typography>
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search movies..."
-            inputProps={{ "aria-label": "search" }}
-            onChange={handleSearch} // ✅ Use handleSearch function
+        <Box display="flex" alignItems="center" sx={{ backgroundColor: "#333", borderRadius: 2, px: 2, py: 1 }}>
+          <SearchIcon sx={{ color: "gray" }} />
+          <InputBase
+            placeholder="Search Movies..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            sx={{ ml: 1, color: "white" }}
           />
-        </Search>
+        </Box>
       </Toolbar>
     </AppBar>
   );
