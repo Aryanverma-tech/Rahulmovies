@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { TextField, CircularProgress } from "@mui/material";
-import { fetchMovies } from "../api/confik";
+import { fetchMovies } from "../api/config";
 import { MovieContext } from "../context/MovieContext";
 import debounce from "lodash.debounce";
 

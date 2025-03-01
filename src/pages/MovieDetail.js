@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { fetchMovieDetails } from "../api/confik";
+import { fetchMovieDetails } from "../api/config";
 import { Button, Typography, Container } from "@mui/material";
 
 const MovieDetail = () => {
